@@ -4,8 +4,10 @@ import com.jayway.restassured.path.json.JsonPath
 import ratpack.groovy.test.LocalScriptApplicationUnderTest
 import ratpack.groovy.test.TestHttpClient
 import ratpack.groovy.test.TestHttpClients
+import spock.lang.Ignore
 import spock.lang.Specification
 
+@Ignore
 class ScriptExecutionSpec extends Specification {
 
     def aut = new LocalScriptApplicationUnderTest()

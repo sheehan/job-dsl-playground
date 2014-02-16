@@ -6,11 +6,13 @@ import ratpack.groovy.test.TestHttpClient
 import ratpack.groovy.test.TestHttpClients
 import ratpack.groovy.test.embed.ClosureBackedEmbeddedApplication
 import spock.lang.AutoCleanup
+import spock.lang.Ignore
 import spock.lang.Specification
 
 /**
  * An example of functionally testing a module in isolation, using {@link ratpack.test.embed.EmbeddedApplication}
  */
+@Ignore
 class ScriptExecutionModuleSpec extends Specification {
 
     @Rule
