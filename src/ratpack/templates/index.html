@@ -1,0 +1,69 @@
+<!doctype html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Job DSL</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="lib/codemirror-3.21/lib/codemirror.css">
+    <link rel="stylesheet" href="lib/jquery-ui-1.10.3/jquery-ui.min.css">
+    <link rel="stylesheet" href="lib/jquery-layout/css/jquery.layout.css">
+    <link rel="stylesheet" href="styles/app.css">
+
+    <!-- build:js scripts/modernizr.js -->
+    <script src="scripts/jquery-2.1.0.min.js"></script>
+    <script src="scripts/underscore-min.js"></script>
+    <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="lib/codemirror-3.21/lib/codemirror.js"></script>
+    <script src="lib/codemirror-3.21/mode/groovy/groovy.js"></script>
+    <script src="lib/codemirror-3.21/mode/xml/xml.js"></script>
+    <script src="lib/jquery-ui-1.10.3/jquery-ui.min.js"></script>
+    <script src="lib/jquery-layout/js/jquery.layout-latest.min.js"></script>
+    <!-- endbuild -->
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <span class="navbar-brand">Job DSL</span>
+    </nav>
+    <!--<h1>Job DSL</h1>-->
+</header>
+
+<div class="input">
+    <div class="title">DSL</div>
+    <div class="content">
+        <textarea></textarea>
+    </div>
+</div>
+<div class="output">
+    <div class="title">Generated Jobs (<span class="job-count">0</span>)</div>
+    <div class="content">
+        <div class="names">
+            <form class="form-inline" role="form">
+            <select class="form-control"></select>
+            </form>
+        </div>
+        <div class="xml"><textarea></textarea></div>
+    </div>
+</div>
+
+<footer class="site-footer"></footer>
+<script src="scripts/app.js"></script>
+<script>
+    jQuery(function(){
+        App.start();
+    });
+</script>
+</body>
+</html>

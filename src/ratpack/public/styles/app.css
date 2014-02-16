@@ -1,0 +1,47 @@
+.input.ui-layout-pane {
+    /*padding: 10px;*/
+}
+.input .CodeMirror {
+    /*border: 1px solid #ccc;*/
+}
+
+.output .CodeMirror {
+    /*border: 1px solid #ccc;*/
+}
+
+header {
+    border-bottom: 1px solid #ccc;
+}
+
+.CodeMirror {
+    height: 100%;
+    /*font-size: 14px;*/
+}
+
+.ui-layout-pane {
+    padding: 0;
+    border: 0;
+    background: transparent;
+}
+
+.ui-layout-content {
+    padding: 0;
+}
+
+.title {
+    padding: 5px;
+    background-color: #eee;
+}
+
+.navbar {
+    margin-bottom: 0;
+}
+body { padding-top: 50px; }
+
+.names {
+    padding: 5px;
+    border-bottom: 1px solid #ccc;
+}
+.names select {
+    width: auto;
+}
