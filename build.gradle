@@ -20,14 +20,8 @@ repositories {
 apply plugin: 'heroku'
 
 heroku {
-    //get this from heroku
-    apiKey = 'a87c045e-2560-4334-af0b-c60afd8f177b'// in gradle.properties
-
-    //set this on first run if you don't want a generated name
+    apiKey = ''// in gradle.properties
     appName = 'job-dsl'
-
-    //set this if you are not happy with the default gradlew buildpack
-    //buildpack = 'http://somebuildpack
 }
 
 // The “ratpack” plugin applies the “application” plugin, making it easy to create a standalone application.

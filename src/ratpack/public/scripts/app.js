@@ -22,9 +22,6 @@
 
         initLayout: function() {
             this.layout = $('body').layout({
-                north__paneSelector: 'header',
-                north__size: 51,
-                north__spacing_open: 0,
                 center__paneSelector: '.output',
                 center__contentSelector: '.xml',
                 west__paneSelector: '.input',
@@ -48,14 +45,16 @@
             this.inputEditor = CodeMirror.fromTextArea($('.input textarea')[0], {
                 matchBrackets: true,
                 mode: 'groovy',
-                lineNumbers: true
+                lineNumbers: true,
+                theme: 'pastel-on-dark'
             });
             this.outputEditor = CodeMirror.fromTextArea($('.output textarea')[0], {
                 matchBrackets: true,
                 mode: 'xml',
                 lineNumbers: true,
                 foldGutter: true,
-                gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"]
+                gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"],
+                theme: 'pastel-on-dark'
             });
         },
 
