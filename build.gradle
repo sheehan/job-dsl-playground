@@ -21,7 +21,7 @@ apply plugin: 'heroku'
 
 heroku {
     //get this from heroku
-    // apiKey = '' in gradle.properties
+    apiKey = 'a87c045e-2560-4334-af0b-c60afd8f177b'// in gradle.properties
 
     //set this on first run if you don't want a generated name
     appName = 'job-dsl'

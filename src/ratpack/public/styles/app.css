@@ -1,16 +1,37 @@
+.input .title {
+    overflow: hidden;
+}
+.input .title .controls {
+    display: inline;
+    margin-left: 10px;
+}
+.input .title .controls button {
+    padding: 2px 7px;
+    border-radius: 0;
+    font-size: 12px;
+}
 .input.ui-layout-pane {
-    /*padding: 10px;*/
+    padding: 10px 10px 5px 20px;
 }
-.input .CodeMirror {
-    /*border: 1px solid #ccc;*/
+.output.ui-layout-pane {
+    padding: 10px 0 5px 0;
+}
+.input .wrap,
+.output .wrap {
+    /*border: 1px solid #bbb;*/
 }
 
-.output .CodeMirror {
-    /*border: 1px solid #ccc;*/
-}
-
-header {
+header .navbar {
     border-bottom: 1px solid #ccc;
+    border-width: 0 0 1px 0;
+    border-radius: 0;
+    margin-bottom: 0;
+}
+
+footer.ui-layout-pane {
+    padding: 0 20px 5px 20px;
+    color: #999;
+    font-size: 12px;
 }
 
 .CodeMirror {
@@ -22,26 +43,22 @@ header {
     padding: 0;
     border: 0;
     background: transparent;
+    box-sizing: content-box;
 }
 
 .ui-layout-content {
     padding: 0;
 }
 
+.ui-layout-resizer {
+    background-color: transparent;
+}
+
+.ui-layout-resizer.ui-layout-resizer-open-hover {
+    background-color: #ddd;
+}
+
 .title {
     padding: 5px;
-    background-color: #eee;
-}
-
-.navbar {
-    margin-bottom: 0;
-}
-body { padding-top: 50px; }
-
-.names {
-    padding: 5px;
-    border-bottom: 1px solid #ccc;
-}
-.names select {
-    width: auto;
+    /*background-color: #eee;*/
 }

@@ -16,6 +16,7 @@
 
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="lib/font-awesome-4.0.3/css/font-awesome.min.css">
     <link rel="stylesheet" href="lib/codemirror-3.21/lib/codemirror.css">
     <link rel="stylesheet" href="lib/jquery-ui-1.10.3/jquery-ui.min.css">
     <link rel="stylesheet" href="lib/jquery-layout/css/jquery.layout.css">
@@ -34,31 +35,36 @@
 </head>
 <body>
 <header>
-    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <nav class="navbar" role="navigation">
         <span class="navbar-brand">Job DSL</span>
     </nav>
     <!--<h1>Job DSL</h1>-->
 </header>
 
 <div class="input">
-    <div class="title">DSL</div>
-    <div class="content">
-        <textarea></textarea>
+    <div class="wrap">
+        <div class="title">DSL
+            <div class="controls">
+                <button class="btn btn-default execute"><i class="fa fa-play"></i></button>
+            </div>
+        </div>
+        <div class="content">
+            <textarea></textarea>
+        </div>
     </div>
 </div>
 <div class="output">
-    <div class="title">Generated Jobs (<span class="job-count">0</span>)</div>
-    <div class="content">
-        <div class="names">
-            <form class="form-inline" role="form">
-            <select class="form-control"></select>
-            </form>
+    <div class="wrap">
+        <div class="title">XML</div>
+        <div class="content">
+            <div class="xml">
+                <textarea></textarea>
+            </div>
         </div>
-        <div class="xml"><textarea></textarea></div>
     </div>
 </div>
 
-<footer class="site-footer"></footer>
+<footer class="site-footer"><a href="https://github.com/sheehan/job-dsl-ratpack">source</a></footer>
 <script src="scripts/app.js"></script>
 <script>
     jQuery(function(){
