@@ -7,3 +7,4 @@ out
 .idea
 .DS_Store
 gradle.properties
+*.class
