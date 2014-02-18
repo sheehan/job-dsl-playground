@@ -16,6 +16,8 @@
                 event.preventDefault();
                 this.execute();
             }, this));
+
+            $('body').css('visibility', 'visible');
         },
 
         initLayout: function() {
@@ -51,7 +53,9 @@
             this.outputEditor = CodeMirror.fromTextArea($('.output textarea')[0], {
                 matchBrackets: true,
                 mode: 'xml',
-                lineNumbers: true
+                lineNumbers: true,
+                foldGutter: true,
+                gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"]
             });
         },
 
