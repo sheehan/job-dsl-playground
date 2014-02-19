@@ -2,6 +2,15 @@ body {
     background-color: #2c2827;
 }
 
+.title {
+    padding: 5px;
+    height: 35px;
+    line-height: 25px;
+    color: #aaa;
+    margin-bottom: 10px;
+}
+
+
 .input .title {
     overflow: hidden;
 }
@@ -11,18 +20,39 @@ body {
 }
 .input .title .controls button {
     padding: 2px 7px;
-    border-radius: 0;
     font-size: 12px;
+    background-color: #444;
+    color: #ccc;
+    border-radius: 3px;
+    border-color: #888;
+}
+.input .title .controls .loading {
+    margin-left: 10px;
+}
+
+.output .title {
+    position: relative;
+}
+.output .title a.close-it {
+    position: absolute;
+    right: 8px;
+    top: 5px;
+    color: #aaa;
 }
 .input.ui-layout-pane {
-    padding: 10px 10px 5px 20px;
+    padding: 10px 10px 20px 20px;
 }
 .output.ui-layout-pane {
-    padding: 10px 0 5px 0;
+    padding: 10px 0 20px 0;
 }
-.input .wrap,
-.output .wrap {
-    /*border: 1px solid #bbb;*/
+.output .code-wrapper {
+    height: 100%;
+}
+.output .about-wrapper {
+    color: #aaa;
+}
+.output .about-wrapper p {
+    width: 400px;
 }
 
 header .navbar {
@@ -64,9 +94,4 @@ footer.ui-layout-pane {
 
 .ui-layout-resizer.ui-layout-resizer-open-hover {
     background-color: #5c5857;
-}
-
-.title {
-    padding: 5px;
-    color: #aaa;
 }

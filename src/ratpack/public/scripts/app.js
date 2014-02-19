@@ -5,6 +5,7 @@
         localStorageKey: 'dsl.lastScript',
 
         start: function() {
+            var that = this;
             this.initLayout();
             this.initEditors();
             this.layout.resizeAll();
@@ -12,32 +13,48 @@
             var script = localStorage.getItem(this.localStorageKey) || 'job {\n}';
             this.inputEditor.setValue(script);
 
-            $('.input .title .controls .execute').on('click', _.bind(function(event) {
+            $('.input .title .controls .execute').on('click', function(event) {
                 event.preventDefault();
-                this.execute();
-            }, this));
+                that.execute();
+            });
+
+            $('.output .title a.close-it').click(function(event) {
+                event.preventDefault();
+                that.showAbout();
+            });
+
+            this.showAbout();
 
             $('body').css('visibility', 'visible');
+        },
+
+        showAbout: function() {
+            $('.output .title span').html('');
+            $('.output .title a.close-it').hide();
+            $('.about-wrapper').show();
+            $('.code-wrapper').hide();
         },
 
         initLayout: function() {
             this.layout = $('body').layout({
                 center__paneSelector: '.output',
-                center__contentSelector: '.xml',
+                center__contentSelector: '.content',
                 west__paneSelector: '.input',
                 west__contentSelector: '.content',
                 west__size: '40%',
-//        west__onresize_end: (name, $el, state, opts) ->
                 west__resizerCursor: 'ew-resize',
-                south__paneSelector: 'footer',
-                south__spacing_open: 0,
                 resizable: true,
                 findNestedContent: true,
                 fxName: '',
                 spacing_open: 3,
                 spacing_closed: 3,
                 slidable: false,
-                closable: false
+                closable: false,
+                onresize_end: _.bind(function (name, $el, state, opts) {
+                    this.inputEditor.refresh();
+                    this.outputEditor.refresh();
+                }, this)
+
             });
         },
 
@@ -53,7 +70,7 @@
                 mode: 'xml',
                 lineNumbers: true,
                 foldGutter: true,
-                gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"],
+                gutters: ['CodeMirror-linenumbers', 'CodeMirror-foldgutter'],
                 theme: 'pastel-on-dark'
             });
         },
@@ -69,12 +86,16 @@
                     script: script
                 }
             }).done(_.bind(this.handleExecuteResponse, this));
+            $('.input .loading').fadeIn(100)
         },
 
         handleExecuteResponse: function(resp) {
+            $('.input .loading').fadeOut(100)
             if (resp.stacktrace) {
+                $('.output .title span').html('Error');
                 this.outputEditor.setValue(resp.stacktrace);
             } else {
+                $('.output .title span').html('XML');
                 var xml = _.map(resp.results, function(it, idx) {
                     var name = it.name || '[no name]';
                     return '<!-- ' + (idx + 1) + '. ' + name + ' -->\n' + it.xml;
@@ -82,6 +103,12 @@
 
                 this.outputEditor.setValue(xml);
             }
+
+            $('.code-wrapper').show();
+            $('.about-wrapper').hide();
+            $('.output .title a.close-it').show();
+            this.layout.resizeAll();
+            this.outputEditor.refresh();
         }
     };
 

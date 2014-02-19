@@ -20,41 +20,45 @@
     <link rel="stylesheet" href="lib/codemirror-3.21/lib/codemirror.css">
     <link rel="stylesheet" href="lib/codemirror-3.21/addon/fold/foldgutter.css">
     <link rel="stylesheet" href="lib/codemirror-3.21/theme/pastel-on-dark.css">
-    <link rel="stylesheet" href="lib/codemirror-3.21/theme/ambiance.css">
-    <link rel="stylesheet" href="lib/codemirror-3.21/theme/mbo.css">
-    <link rel="stylesheet" href="lib/codemirror-3.21/theme/midnight.css">
-    <link rel="stylesheet" href="lib/codemirror-3.21/theme/paraiso-dark.css">
-    <link rel="stylesheet" href="lib/codemirror-3.21/theme/solarized-dark.css">
     <link rel="stylesheet" href="lib/jquery-ui-1.10.3/jquery-ui.min.css">
     <link rel="stylesheet" href="lib/jquery-layout/css/jquery.layout.css">
     <link rel="stylesheet" href="styles/app.css">
 </head>
 <body style="visibility: hidden">
-
 <div class="input">
-    <div class="wrap">
-        <div class="title">DSL
-            <div class="controls">
-                <button class="btn btn-default execute"><i class="fa fa-play"></i></button>
-            </div>
+    <div class="title">DSL
+        <div class="controls">
+            <button class="btn btn-default execute"><i class="fa fa-play"></i></button>
+            <i class="fa fa-refresh fa-spin loading" style="display: none"></i>
         </div>
-        <div class="content">
+    </div>
+    <div class="content">
+        <textarea></textarea>
+    </div>
+</div>
+<div class="output">
+    <div class="title"><span>XML</span> <a href="#" class="close-it"><i class="fa fa-times-circle-o"></i></a></div>
+    <div class="content">
+        <div class="about-wrapper">
+            <h2>Jenkins Job DSL Playground</h2>
+            <p>
+                Use the editor to create some jobs using
+                the Groovy DSL then click the execute button to generate the XML.
+            </p>
+            <p>
+                See the <a href="https://github.com/jenkinsci/job-dsl-plugin/wiki/Job-DSL-Commands">documentation</a>
+                for a list of DSL methods.
+            </p>
+            <p>
+                The source for the DSL can be found <a href="https://github.com/jenkinsci/job-dsl-plugin">here</a> and
+                the website source <a href="https://github.com/sheehan/job-dsl-ratpack">here</a>.
+            </p>
+        </div>
+        <div class="code-wrapper">
             <textarea></textarea>
         </div>
     </div>
 </div>
-<div class="output">
-    <div class="wrap">
-        <div class="title">XML</div>
-        <div class="content">
-            <div class="xml">
-                <textarea></textarea>
-            </div>
-        </div>
-    </div>
-</div>
-
-<footer class="site-footer"><a href="https://github.com/sheehan/job-dsl-ratpack">source</a></footer>
 
 <script src="scripts/jquery-2.1.0.min.js"></script>
 <script src="scripts/underscore-min.js"></script>
