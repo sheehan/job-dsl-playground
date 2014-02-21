@@ -1,4 +1,4 @@
-[![Build Status](https://buildhive.cloudbees.com/job/sheehan/job/job-dsl-ratpack/badge/icon)](https://buildhive.cloudbees.com/job/sheehan/job/job-dsl-ratpack/)
+[![Build Status](https://buildhive.cloudbees.com/job/sheehan/job/job-dsl-playground/badge/icon)](https://buildhive.cloudbees.com/job/sheehan/job/job-dsl-playground/)
 
 # Jenkins Job DSL Playground
 
