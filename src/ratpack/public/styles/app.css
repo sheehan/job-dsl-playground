@@ -10,14 +10,15 @@ body {
     margin-bottom: 10px;
 }
 
-
 .input .title {
     overflow: hidden;
 }
+
 .input .title .controls {
     display: inline;
     margin-left: 10px;
 }
+
 .input .title .controls button {
     padding: 2px 7px;
     font-size: 12px;
@@ -26,6 +27,7 @@ body {
     border-radius: 3px;
     border-color: #888;
 }
+
 .input .title .controls .loading {
     margin-left: 10px;
 }
@@ -33,24 +35,30 @@ body {
 .output .title {
     position: relative;
 }
+
 .output .title a.close-it {
     position: absolute;
     right: 8px;
     top: 5px;
     color: #aaa;
 }
+
 .input.ui-layout-pane {
     padding: 10px 10px 20px 20px;
 }
+
 .output.ui-layout-pane {
     padding: 10px 0 20px 0;
 }
+
 .output .code-wrapper {
     height: 100%;
 }
+
 .output .about-wrapper {
     color: #aaa;
 }
+
 .output .about-wrapper p {
     width: 400px;
 }
@@ -62,16 +70,11 @@ header .navbar {
     margin-bottom: 0;
 }
 
-footer.ui-layout-pane {
-    padding: 0 20px 5px 20px;
-    color: #999;
-    font-size: 12px;
-}
-
 .CodeMirror {
     height: 100%;
     /*font-size: 14px;*/
 }
+
 .CodeMirror.cm-s-pastel-on-dark {
     line-height: 1.3;
     font-family: monospace;

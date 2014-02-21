@@ -4,6 +4,9 @@ import groovy.transform.CompileStatic
 
 import java.security.Permission
 
+/**
+ * Restrict individual Threads.
+ */
 @CompileStatic
 class CustomSecurityManager extends SecurityManager {
 

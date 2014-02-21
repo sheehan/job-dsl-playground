@@ -1,4 +1,4 @@
-(function($, _,CodeMirror){
+(function(window, $, _,CodeMirror){
 
     var App = {
 
@@ -35,7 +35,18 @@
             $('.code-wrapper').hide();
         },
 
+        showXmlEditor: function(title, output) {
+            $('.output .title span').html(title);
+            $('.output .title a.close-it').show();
+            $('.about-wrapper').hide();
+            $('.code-wrapper').show();
+            this.outputEditor.setValue(output);
+            this.layout.resizeAll();
+            this.outputEditor.refresh();
+        },
+
         initLayout: function() {
+            var that = this;
             this.layout = $('body').layout({
                 center__paneSelector: '.output',
                 center__contentSelector: '.content',
@@ -50,11 +61,10 @@
                 spacing_closed: 3,
                 slidable: false,
                 closable: false,
-                onresize_end: _.bind(function (name, $el, state, opts) {
-                    this.inputEditor.refresh();
-                    this.outputEditor.refresh();
-                }, this)
-
+                onresize_end: function (name, $el, state, opts) {
+                    that.inputEditor.refresh();
+                    that.outputEditor.refresh();
+                }
             });
         },
 
@@ -91,27 +101,22 @@
 
         handleExecuteResponse: function(resp) {
             $('.input .loading').fadeOut(100)
+            var title, output;
             if (resp.stacktrace) {
-                $('.output .title span').html('Error');
-                this.outputEditor.setValue(resp.stacktrace);
+                title = 'Error';
+                output = resp.stacktrace;
             } else {
-                $('.output .title span').html('XML');
-                var xml = _.map(resp.results, function(it, idx) {
+                title = 'XML';
+                output = _.map(resp.results, function(it, idx) {
                     var name = it.name || '[no name]';
                     return '<!-- ' + (idx + 1) + '. ' + name + ' -->\n' + it.xml;
                 }).join('\n');
-
-                this.outputEditor.setValue(xml);
             }
 
-            $('.code-wrapper').show();
-            $('.about-wrapper').hide();
-            $('.output .title a.close-it').show();
-            this.layout.resizeAll();
-            this.outputEditor.refresh();
+            this.showXmlEditor(title, output);
         }
     };
 
     window.App = App;
 
-})(jQuery, _, CodeMirror);
+})(window, jQuery, _, CodeMirror);
