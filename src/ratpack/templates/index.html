@@ -33,7 +33,25 @@
         </div>
     </div>
     <div class="content">
-        <textarea></textarea>
+        <textarea>
+job {
+  name 'ci'
+  description 'Build and test the app.'
+  scm {
+    git {
+      remote {
+        github 'sheehan/job-dsl-ratpack'
+      }
+    }
+  }
+  steps {
+    gradle 'test'
+  }
+  publishers {
+    archiveJunit 'build/test-results/**/*.xml'
+  }
+}
+        </textarea>
     </div>
 </div>
 <div class="output">
@@ -52,6 +70,9 @@
             <p>
                 The source for the DSL can be found <a href="https://github.com/jenkinsci/job-dsl-plugin">here</a> and
                 the website source <a href="https://github.com/sheehan/job-dsl-ratpack">here</a>.
+            </p>
+            <p>
+                Job DSL version: 1.20
             </p>
         </div>
         <div class="code-wrapper">
@@ -74,7 +95,9 @@
 <script src="scripts/app.js"></script>
 <script>
     jQuery(function(){
-        App.start();
+        App.start({
+
+        });
     });
 </script>
 </body>

@@ -8,7 +8,7 @@ class ScriptExecutionModule extends AbstractModule {
 
     @Override
     protected void configure() {
-        bind(ScriptExecutor).to(GroovyScriptExecutor)
+        bind(ScriptExecutor).to(DslScriptExecutor)
         bind(ScriptResultRenderer)
     }
 }

@@ -10,8 +10,10 @@
             this.initEditors();
             this.layout.resizeAll();
 
-            var script = localStorage.getItem(this.localStorageKey) || 'job {\n}';
-            this.inputEditor.setValue(script);
+            var script = localStorage.getItem(this.localStorageKey);
+            if (script) {
+                this.inputEditor.setValue(script);
+            }
 
             $('.input .title .controls .execute').on('click', function(event) {
                 event.preventDefault();

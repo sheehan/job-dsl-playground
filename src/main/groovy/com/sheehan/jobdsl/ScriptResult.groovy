@@ -4,6 +4,7 @@ import groovy.transform.CompileStatic
 
 @CompileStatic
 class ScriptResult {
+
     String stacktrace
     List results = []
 }

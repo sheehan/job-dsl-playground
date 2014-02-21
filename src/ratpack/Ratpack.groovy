@@ -21,16 +21,16 @@ ratpack {
 
     handlers {
         get {
-            render groovyTemplate("index.html", title: "Job DSL")
+            render groovyTemplate('index.html')
         }
 
-        post("execute") { ScriptExecutor scriptExecutor ->
+        post('execute') { ScriptExecutor scriptExecutor ->
             Form form = parse form()
             String script = form.script
             render scriptExecutor.execute(script)
         }
 
-        assets "public"
+        assets 'public'
     }
 
 }
