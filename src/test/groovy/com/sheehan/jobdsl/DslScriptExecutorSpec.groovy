@@ -16,6 +16,16 @@ class DslScriptExecutorSpec extends Specification {
         result.results[0].xml.startsWith '<project>'
     }
 
+    def 'captures view'() {
+        when:
+        ScriptResult result = executor.execute 'view { name "viewName" }'
+
+        then:
+        result.results.size() == 1
+        result.results[0].name == 'viewName'
+        result.results[0].xml.startsWith '<hudson.model.ListView>'
+    }
+
     def 'captures errors'() {
         when:
         ScriptResult result = executor.execute 'throw new Exception("bang")'
