@@ -35,6 +35,7 @@ class DslScriptExecutor implements ScriptExecutor {
             JobParent jobParent = DslScriptLoader.runDslEngineForParent(scriptRequest, jm)
 
             scriptResult.results = jobParent.referencedJobs.toList().collect { [name: it.getName(), xml: it.xml] }
+            scriptResult.results += jobParent.referencedViews.toList().collect { [name: it.getName(), xml: it.xml] }
         } catch (MultipleCompilationErrorsException e) {
             stackTrace.append(e.message - 'startup failed, Script1.groovy: ')
         } catch (Throwable t) {
