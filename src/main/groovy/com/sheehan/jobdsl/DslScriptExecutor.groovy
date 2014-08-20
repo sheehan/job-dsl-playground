@@ -28,6 +28,10 @@ class DslScriptExecutor implements ScriptExecutor {
                 getOutputStream: { System.out },
                 getParameters: { [:] },
                 queueJob: {},
+                requireMinimumPluginVersion: { String pluginShortName, String version -> },
+                getPluginVersion: { String pluginShortName -> null },
+                logDeprecationWarning: {},
+                getCredentialsId: { String credentialsDescription -> null },
                 createOrUpdateConfig: { String name, String xml, Boolean ignoreExisting -> true }
             ] as JobManagement
 
