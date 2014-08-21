@@ -15,32 +15,19 @@
                 this.inputEditor.setValue(script);
             }
 
-            $('.input .title .controls .execute').on('click', function(event) {
+            $('.input .title .controls .execute').click(function(event) {
                 event.preventDefault();
                 that.execute();
             });
 
-            $('.output .title a.close-it').click(function(event) {
-                event.preventDefault();
-                that.showAbout();
-            });
-
-            this.showAbout();
+            this.showXmlEditor('XML', '');
 
             $('body').css('visibility', 'visible');
-        },
-
-        showAbout: function() {
-            $('.output .title span').html('');
-            $('.output .title a.close-it').hide();
-            $('.about-wrapper').show();
-            $('.code-wrapper').hide();
         },
 
         showXmlEditor: function(title, output) {
             $('.output .title span').html(title);
             $('.output .title a.close-it').show();
-            $('.about-wrapper').hide();
             $('.code-wrapper').show();
             this.outputEditor.setValue(output);
             this.layout.resizeAll();
@@ -50,6 +37,15 @@
         initLayout: function() {
             var that = this;
             this.layout = $('body').layout({
+                north__paneSelector: '.header',
+                north__resizable: false,
+                north__spacing_open: 0,
+                south__paneSelector: '.footer',
+                south__resizable: false,
+                south__spacing_open: 0,
+                center__paneSelector: '.main'
+            });
+            $('body .main').layout({
                 center__paneSelector: '.output',
                 center__contentSelector: '.content',
                 west__paneSelector: '.input',
@@ -102,7 +98,7 @@
         },
 
         handleExecuteResponse: function(resp) {
-            $('.input .loading').fadeOut(100)
+            $('.input .loading').fadeOut(100);
             var title, output;
             if (resp.stacktrace) {
                 title = 'Error';
