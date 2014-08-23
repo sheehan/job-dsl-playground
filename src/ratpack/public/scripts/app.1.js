@@ -4,14 +4,18 @@
 
         localStorageKey: 'dsl.lastScript',
 
-        start: function() {
+        start: function(data) {
+            this.data = data || {};
             var that = this;
             this.initLayout();
             this.initEditors();
             this.layout.resizeAll();
 
             var script = localStorage.getItem(this.localStorageKey);
-            if (script) {
+            if (this.data.input !== undefined) {
+                this.inputEditor.setValue(this.data.input || '');
+                that.execute();
+            } else if (script) {
                 this.inputEditor.setValue(script);
             }
 
@@ -87,7 +91,7 @@
             var script = this.inputEditor.getValue();
             localStorage.setItem(this.localStorageKey, script);
             $.ajax({
-                url: 'execute',
+                url: '/execute',
                 type: 'POST',
                 dataType: 'json',
                 data: {

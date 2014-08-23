@@ -3,9 +3,8 @@ body {
 }
 
 .header.ui-layout-pane  {
-    padding: 30px 0 20px;
-    /*border-bottom: 1px solid #444;*/
-    /*background-color: #222;*/
+    padding: 30px 0 10px;
+    line-height: 26px;
 }
 
 .header h1 {
@@ -15,12 +14,26 @@ body {
     float: left;
 }
 
+.header .gist {
+    color: #aaa;
+    float: right;
+    padding-right: 10px;
+    border-right: 1px solid;
+    margin-right: 10px;
+}
+
+.header .gist a {
+    color: #ccc;
+    text-decoration: underline;
+}
+
 .header .docs {
     float: right;
     line-height: 26px;
 }
 .header .docs a {
-    color: #aaa;
+    color: #ccc;
+    text-decoration: underline;
 }
 
 .footer.ui-layout-pane  {
@@ -32,7 +45,8 @@ body {
     float: right;
 }
 .footer .playground-source a {
-    color: #aaa;
+    color: #ccc;
+    text-decoration: underline;
 }
 
 .title {

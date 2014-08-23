@@ -23,6 +23,7 @@ class CustomSecurityManager extends SecurityManager {
     }
 
     void checkPermission(final Permission perm) {
+        if (perm.name.startsWith('getenv')) { failIfRestricted() }
         parent?.checkPermission(perm)
     }
 

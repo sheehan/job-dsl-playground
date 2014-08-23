@@ -43,4 +43,20 @@ class CustomSecurityManagerSpec extends Specification {
         then:
         notThrown SecurityException
     }
+
+    def 'get env var'() {
+        when:
+        CustomSecurityManager.restrictThread()
+        System.getenv 'test'
+
+        then:
+        thrown SecurityException
+
+        when:
+        CustomSecurityManager.unrestrictThread()
+        System.getenv 'test'
+
+        then:
+        notThrown SecurityException
+    }
 }
