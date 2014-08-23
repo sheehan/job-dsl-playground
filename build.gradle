@@ -3,10 +3,10 @@ buildscript {
     maven { url "http://oss.jfrog.org/repo" }
     mavenCentral()
 
-    mavenRepo name: 'Bintray Gradle Plugins', url: 'http://dl.bintray.com/vermeulen-mp/gradle-plugins'
+    maven { url 'http://dl.bintray.com/vermeulen-mp/gradle-plugins' }
   }
   dependencies {
-    classpath 'io.ratpack:ratpack-gradle:0.9.0-SNAPSHOT'
+    classpath 'io.ratpack:ratpack-gradle:0.9.8-SNAPSHOT'
     classpath 'com.wiredforcode:gradle-heroku-plugin:1.0.0'
   }
 }
@@ -25,12 +25,7 @@ heroku {
     appName = 'job-dsl'
 }
 
-// The “ratpack” plugin applies the “application” plugin, making it easy to create a standalone application.
-// See: http://gradle.org/docs/current/userguide/application_plugin.html
-apply plugin: "ratpack-groovy"
-
-// The “ratpack” plugin is IDEA aware.
-// It will create a run configuration in IDEA to launch your app in your IDE, with hot reloading.
+apply plugin: "io.ratpack.ratpack-groovy"
 apply plugin: "idea"
 idea {
     project {
@@ -51,6 +46,7 @@ dependencies {
         exclude module: "groovy-all"
     }
     compile 'org.jenkins-ci.plugins:job-dsl-core:1.24'
+    compile 'org.kohsuke:github-api:1.56'
 }
 
 defaultTasks "clean", "build", "installApp"
