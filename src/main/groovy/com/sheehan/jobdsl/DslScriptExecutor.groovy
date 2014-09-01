@@ -1,5 +1,6 @@
 package com.sheehan.jobdsl
 
+import javaposse.jobdsl.dsl.ConfigFileType
 import javaposse.jobdsl.dsl.DslScriptLoader
 import javaposse.jobdsl.dsl.JobManagement
 import javaposse.jobdsl.dsl.JobParent
@@ -32,6 +33,7 @@ class DslScriptExecutor implements ScriptExecutor {
                 getPluginVersion: { String pluginShortName -> null },
                 logDeprecationWarning: {},
                 getCredentialsId: { String credentialsDescription -> null },
+                getConfigFileId: { ConfigFileType type, String name -> UUID.randomUUID().toString() },
                 createOrUpdateConfig: { String name, String xml, Boolean ignoreExisting -> true }
             ] as JobManagement
 
