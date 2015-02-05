@@ -1,9 +1,9 @@
 package com.sheehan.jobdsl
 
-import javaposse.jobdsl.dsl.ConfigFileType
 import javaposse.jobdsl.dsl.DslScriptLoader
 import javaposse.jobdsl.dsl.JobManagement
 import javaposse.jobdsl.dsl.JobParent
+import javaposse.jobdsl.dsl.MemoryJobManagement
 import javaposse.jobdsl.dsl.ScriptRequest
 import org.codehaus.groovy.control.MultipleCompilationErrorsException
 import org.codehaus.groovy.runtime.StackTraceUtils
@@ -25,17 +25,7 @@ class DslScriptExecutor implements ScriptExecutor {
         ScriptResult scriptResult = new ScriptResult()
         try {
             CustomSecurityManager.restrictThread()
-            JobManagement jm = [
-                getOutputStream: { System.out },
-                getParameters: { [:] },
-                queueJob: {},
-                requireMinimumPluginVersion: { String pluginShortName, String version -> },
-                getPluginVersion: { String pluginShortName -> null },
-                logDeprecationWarning: {},
-                getCredentialsId: { String credentialsDescription -> null },
-                getConfigFileId: { ConfigFileType type, String name -> UUID.randomUUID().toString() },
-                createOrUpdateConfig: { String name, String xml, Boolean ignoreExisting -> true }
-            ] as JobManagement
+            JobManagement jm = new MemoryJobManagement()
 
             ScriptRequest scriptRequest = new ScriptRequest(null, scriptText, new File('.').toURI().toURL())
             JobParent jobParent = DslScriptLoader.runDslEngineForParent(scriptRequest, jm)
