@@ -8,7 +8,7 @@ class DslScriptExecutorSpec extends Specification {
 
     def 'captures result'() {
         when:
-        ScriptResult result = executor.execute 'job { name "jobName" }'
+        ScriptResult result = executor.execute 'job("jobName") { description "testing" }'
 
         then:
         result.results.size() == 1
@@ -18,7 +18,7 @@ class DslScriptExecutorSpec extends Specification {
 
     def 'captures view'() {
         when:
-        ScriptResult result = executor.execute 'view { name "viewName" }'
+        ScriptResult result = executor.execute 'listView("viewName") { description "testing" }'
 
         then:
         result.results.size() == 1
