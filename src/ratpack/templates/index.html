@@ -45,15 +45,10 @@
     </div>
     <div class="content">
         <textarea>
-job {
-  name 'ci'
+job('ci') {
   description 'Build and test the app.'
   scm {
-    git {
-      remote {
-        github 'sheehan/job-dsl-playground'
-      }
-    }
+    github 'sheehan/job-dsl-playground'
   }
   steps {
     gradle 'test'
