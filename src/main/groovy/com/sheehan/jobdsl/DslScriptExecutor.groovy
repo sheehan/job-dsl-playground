@@ -1,8 +1,6 @@
 package com.sheehan.jobdsl
 
 import javaposse.jobdsl.dsl.DslScriptLoader
-import javaposse.jobdsl.dsl.JobManagement
-import javaposse.jobdsl.dsl.JobParent
 import javaposse.jobdsl.dsl.MemoryJobManagement
 import javaposse.jobdsl.dsl.ScriptRequest
 import org.codehaus.groovy.control.MultipleCompilationErrorsException
@@ -25,13 +23,13 @@ class DslScriptExecutor implements ScriptExecutor {
         ScriptResult scriptResult = new ScriptResult()
         try {
             CustomSecurityManager.restrictThread()
-            JobManagement jm = new MemoryJobManagement()
+            MemoryJobManagement jm = new MemoryJobManagement()
 
             ScriptRequest scriptRequest = new ScriptRequest(null, scriptText, new File('.').toURI().toURL())
-            JobParent jobParent = DslScriptLoader.runDslEngineForParent(scriptRequest, jm)
+            DslScriptLoader.runDslEngine(scriptRequest, jm)
 
-            scriptResult.results = jobParent.referencedJobs.toList().collect { [name: it.getName(), xml: it.xml] }
-            scriptResult.results += jobParent.referencedViews.toList().collect { [name: it.getName(), xml: it.xml] }
+            scriptResult.results = jm.savedConfigs.collect { [name: it.key, xml: it.value] }
+            scriptResult.results += jm.savedViews.collect { [name: it.key, xml: it.value] }
         } catch (MultipleCompilationErrorsException e) {
             stackTrace.append(e.message - 'startup failed, Script1.groovy: ')
         } catch (Throwable t) {
