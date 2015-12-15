@@ -45,7 +45,7 @@ dependencies {
     testCompile "org.spockframework:spock-core:0.7-groovy-2.0", {
         exclude module: "groovy-all"
     }
-    compile 'org.jenkins-ci.plugins:job-dsl-core:1.40'
+    compile 'org.jenkins-ci.plugins:job-dsl-core:1.41'
     compile 'org.kohsuke:github-api:1.56'
 }
 
