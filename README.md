@@ -1,5 +1,3 @@
-[![Build Status](https://buildhive.cloudbees.com/job/sheehan/job/job-dsl-playground/badge/icon)](https://buildhive.cloudbees.com/job/sheehan/job/job-dsl-playground/)
-
 # Jenkins Job DSL Playground
 
 http://job-dsl.herokuapp.com/
