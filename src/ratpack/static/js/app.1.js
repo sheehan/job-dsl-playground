@@ -24,6 +24,11 @@
                 that.execute();
             });
 
+            $('.input .title .controls .save').click(function(event) {
+                event.preventDefault();
+                that.save();
+            });
+
             this.showXmlEditor('XML', '');
 
             $('body').css('visibility', 'visible');
@@ -99,6 +104,10 @@
                 }
             }).done(_.bind(this.handleExecuteResponse, this));
             $('.input .loading').fadeIn(100)
+        },
+
+        save: function() {
+            $('.modal').removeClass('hide').modal({});
         },
 
         handleExecuteResponse: function(resp) {

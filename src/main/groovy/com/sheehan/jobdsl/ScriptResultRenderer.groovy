@@ -13,7 +13,7 @@ class ScriptResultRenderer extends GroovyRendererSupport<ScriptResult> {
     void render(GroovyContext context, ScriptResult result) {
         context.byContent {
             json {
-                render toJson(result)
+                context.render toJson(result)
             }
         }
     }

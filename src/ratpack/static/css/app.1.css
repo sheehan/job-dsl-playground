@@ -136,3 +136,13 @@ body {
 .ui-layout-resizer.ui-layout-resizer-open-hover {
     background-color: #5c5857;
 }
+
+.modal {
+    display: block;
+    width: 400px;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 50px;
+    height: auto;
+    bottom: initial;
+}

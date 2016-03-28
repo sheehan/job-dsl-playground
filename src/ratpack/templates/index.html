@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="/lib/codemirror-3.21/theme/pastel-on-dark.css">
     <link rel="stylesheet" href="/lib/jquery-ui-1.10.3/jquery-ui.min.css">
     <link rel="stylesheet" href="/lib/jquery-layout/css/jquery.layout.css">
-    <link rel="stylesheet" href="/styles/app.1.css">
+    <link rel="stylesheet" href="/css/app.1.css">
 </head>
 <body style="visibility: hidden">
 <div class="header">
@@ -40,6 +40,7 @@
         <span class="source-type">Groovy</span>
         <div class="controls">
             <button class="btn btn-default execute"><i class="fa fa-play"></i> Run</button>
+            <!--<button class="btn btn-default save"><i class="fa fa-save"></i> Save</button>-->
             <i class="fa fa-refresh fa-spin loading" style="display: none"></i>
         </div>
     </div>
@@ -74,8 +75,22 @@ job('ci') {
     <span class="playground-source"><a href="https://github.com/sheehan/job-dsl-playground">Source</a></span>
 </div>
 
-<script src="/scripts/jquery-2.1.0.min.js"></script>
-<script src="/scripts/underscore-min.js"></script>
+<div class="modal hide fade">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h3>Modal header</h3>
+    </div>
+    <div class="modal-body">
+        <p>One fine body…</p>
+    </div>
+    <div class="modal-footer">
+        <a href="#" class="btn" data-dismiss="modal">Close</a>
+        <a href="#" class="btn btn-primary">Save changes</a>
+    </div>
+</div>
+
+<script src="/js/jquery-2.1.0.min.js"></script>
+<script src="/js/underscore-min.js"></script>
 <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
 <script src="/lib/codemirror-3.21/lib/codemirror.js"></script>
 <script src="/lib/codemirror-3.21/addon/fold/foldcode.js"></script>
@@ -85,7 +100,7 @@ job('ci') {
 <script src="/lib/codemirror-3.21/mode/xml/xml.js"></script>
 <script src="/lib/jquery-ui-1.10.3/jquery-ui.min.js"></script>
 <script src="/lib/jquery-layout/js/jquery.layout-latest.min.js"></script>
-<script src="/scripts/app.1.js"></script>
+<script src="/js/app.1.js"></script>
 <script>
     jQuery(function(){
         App.start(${model.json});

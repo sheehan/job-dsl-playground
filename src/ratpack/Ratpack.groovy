@@ -1,46 +1,37 @@
 import com.sheehan.jobdsl.CustomSecurityManager
-import com.sheehan.jobdsl.GistService
 import com.sheehan.jobdsl.ScriptExecutionModule
 import com.sheehan.jobdsl.ScriptExecutor
-import groovy.json.JsonBuilder
 import ratpack.form.Form
+import ratpack.groovy.template.TextTemplateModule
 
 import static ratpack.groovy.Groovy.groovyTemplate
 import static ratpack.groovy.Groovy.ratpack
 
+System.securityManager = new CustomSecurityManager()
+
 ratpack {
 
-    bindings {
-        add new ScriptExecutionModule()
+	bindings {
+		module ScriptExecutionModule
+		module TextTemplateModule, { TextTemplateModule.Config config -> config.staticallyCompile = true }
+	}
 
-        init {
-            System.securityManager = new CustomSecurityManager()
-        }
-    }
-
-    handlers {
+	handlers {
         get {
             render groovyTemplate('index.html')
         }
 
-        get('gist/:id') { GistService gistService ->
-            String input = gistService.getGroovyText(pathTokens.id)
+		post("execute") { ScriptExecutor scriptExecutor ->
+			parse(Form).then { Form form ->
+				String script = form.script
+				render scriptExecutor.execute(script)
+			}
+		}
 
-            Map jsonData = [input: input]
-            render groovyTemplate('index.html',
-                id: pathTokens.id,
-                json: new JsonBuilder(jsonData).toString()
-            )
+        files {
+            dir("static")
         }
-
-        post('execute') { ScriptExecutor scriptExecutor ->
-            Form form = parse(Form)
-            String script = form.script
-            render scriptExecutor.execute(script)
-        }
-
-        assets 'public'
-    }
+	}
 
 }
 
