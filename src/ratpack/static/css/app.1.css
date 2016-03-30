@@ -1,5 +1,7 @@
 body {
     background: url('/images/binding_dark.png');
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
 }
 
 .header.ui-layout-pane  {

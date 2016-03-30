@@ -80,7 +80,14 @@
                 matchBrackets: true,
                 mode: 'groovy',
                 lineNumbers: true,
-                theme: 'pastel-on-dark'
+                tabSize: 4,
+                indentUnit: 4,
+                indentWithTabs: false,
+                theme: 'pastel-on-dark',
+                extraKeys: {
+                    'Ctrl-Enter': _.bind(this.execute, this),
+                    'Cmd-Enter': _.bind(this.execute, this)
+                }
             });
             this.outputEditor = CodeMirror.fromTextArea($('.output textarea')[0], {
                 matchBrackets: true,

@@ -15,13 +15,14 @@
     <meta name="viewport" content="width=device-width">
 
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-    <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/lib/font-awesome-4.0.3/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/lib/codemirror-3.21/lib/codemirror.css">
-    <link rel="stylesheet" href="/lib/codemirror-3.21/addon/fold/foldgutter.css">
-    <link rel="stylesheet" href="/lib/codemirror-3.21/theme/pastel-on-dark.css">
-    <link rel="stylesheet" href="/lib/jquery-ui-1.10.3/jquery-ui.min.css">
-    <link rel="stylesheet" href="/lib/jquery-layout/css/jquery.layout.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.4/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.13.2/codemirror.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.13.2/addon/fold/foldgutter.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.13.2/theme/pastel-on-dark.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-layout/1.4.3/layout-default.min.css">
     <link rel="stylesheet" href="/css/app.1.css">
 </head>
 <body style="visibility: hidden">
@@ -47,16 +48,16 @@
     <div class="content">
         <textarea>
 job('ci') {
-  description 'Build and test the app.'
-  scm {
-    github 'sheehan/job-dsl-playground'
-  }
-  steps {
-    gradle 'test'
-  }
-  publishers {
-    archiveJunit 'build/test-results/**/*.xml'
-  }
+    description 'Build and test the app.'
+    scm {
+        github 'sheehan/job-dsl-playground'
+    }
+    steps {
+        gradle 'test'
+    }
+    publishers {
+        archiveJunit 'build/test-results/**/*.xml'
+    }
 }
         </textarea>
     </div>
@@ -89,17 +90,17 @@ job('ci') {
     </div>
 </div>
 
-<script src="/js/jquery-2.1.0.min.js"></script>
-<script src="/js/underscore-min.js"></script>
-<script src="/lib/bootstrap/js/bootstrap.min.js"></script>
-<script src="/lib/codemirror-3.21/lib/codemirror.js"></script>
-<script src="/lib/codemirror-3.21/addon/fold/foldcode.js"></script>
-<script src="/lib/codemirror-3.21/addon/fold/foldgutter.js"></script>
-<script src="/lib/codemirror-3.21/addon/fold/xml-fold.js"></script>
-<script src="/lib/codemirror-3.21/mode/groovy/groovy.js"></script>
-<script src="/lib/codemirror-3.21/mode/xml/xml.js"></script>
-<script src="/lib/jquery-ui-1.10.3/jquery-ui.min.js"></script>
-<script src="/lib/jquery-layout/js/jquery.layout-latest.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.13.2/codemirror.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.13.2/addon/fold/foldcode.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.13.2/addon/fold/foldgutter.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.13.2/addon/fold/xml-fold.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.13.2/mode/groovy/groovy.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.13.2/mode/xml/xml.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-layout/1.4.3/jquery.layout.min.js"></script>
 <script src="/js/app.1.js"></script>
 <script>
     jQuery(function(){
