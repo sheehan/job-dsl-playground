@@ -1,1 +1,1 @@
-web: build/install/job-dsl-playground/bin/job-dsl-playground
+web: java -jar ./build/libs/job-dsl-playground-all.jar

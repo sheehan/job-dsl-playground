@@ -1,18 +1,24 @@
 buildscript {
+    ext {
+        assetPipelineVersion = "2.7.2"
+    }
     repositories {
         maven { url "http://oss.jfrog.org/artifactory/repo" }
         jcenter()
     }
     dependencies {
-        classpath 'io.ratpack:ratpack-gradle:1.0.0'
-//        classpath "com.bertramlabs.plugins:asset-pipeline-gradle:2.6.4"
+        classpath 'io.ratpack:ratpack-gradle:1.2.0'
+        classpath "com.github.jengelman.gradle.plugins:shadow:1.2.2"
+        classpath "com.bertramlabs.plugins:asset-pipeline-gradle:${assetPipelineVersion}"
+        classpath "com.bertramlabs.plugins:less-asset-pipeline:${assetPipelineVersion}"
     }
 }
 
 // The “ratpack” plugin applies the “application” plugin, making it easy to create a standalone application.
 // See: http://gradle.org/docs/current/userguide/application_plugin.html
 apply plugin: "io.ratpack.ratpack-groovy"
-//apply plugin: "asset-pipeline"
+apply plugin: "com.github.johnrengelman.shadow"
+apply plugin: "asset-pipeline"
 
 // The “ratpack” plugin is IDEA aware.
 // It will create a run configuration in IDEA to launch your app in your IDE, with hot reloading.
@@ -50,14 +56,12 @@ dependencies {
     runtime 'org.slf4j:slf4j-simple:1.7.7'
     compile 'org.jenkins-ci.plugins:job-dsl-core:1.45'
 
-//    compile ratpack.dependency("guice")
-//    compile "com.bertramlabs.plugins:ratpack-asset-pipeline:2.6.4"
+    compile "com.bertramlabs.plugins:ratpack-asset-pipeline:${assetPipelineVersion}"
+    runtime "com.bertramlabs.plugins:less-asset-pipeline:${assetPipelineVersion}"
 
-    testCompile "org.spockframework:spock-core:0.7-groovy-2.0", {
-        exclude module: "groovy-all"
-    }
+    testCompile "org.spockframework:spock-core:1.0-groovy-2.4"
 }
 
 task stage {
-    dependsOn installDist
+    dependsOn shadowJar
 }

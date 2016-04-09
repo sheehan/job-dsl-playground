@@ -1,3 +1,4 @@
+import asset.pipeline.ratpack.AssetPipelineModule
 import com.sheehan.jobdsl.CustomSecurityManager
 import com.sheehan.jobdsl.ScriptExecutionModule
 import com.sheehan.jobdsl.ScriptExecutor
@@ -14,6 +15,10 @@ ratpack {
 	bindings {
 		module ScriptExecutionModule
 		module TextTemplateModule, { TextTemplateModule.Config config -> config.staticallyCompile = true }
+
+		module(AssetPipelineModule) { config ->
+			config.sourcePath '../../../src/assets'
+		}
 	}
 
 	handlers {
@@ -21,18 +26,13 @@ ratpack {
             render groovyTemplate('index.html')
         }
 
-		post("execute") { ScriptExecutor scriptExecutor ->
+		post('execute') { ScriptExecutor scriptExecutor ->
 			parse(Form).then { Form form ->
 				String script = form.script
 				render scriptExecutor.execute(script)
 			}
 		}
-
-        files {
-            dir("static")
-        }
 	}
-
 }
 
 
