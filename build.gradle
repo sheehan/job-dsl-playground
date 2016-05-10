@@ -14,29 +14,9 @@ buildscript {
     }
 }
 
-// The “ratpack” plugin applies the “application” plugin, making it easy to create a standalone application.
-// See: http://gradle.org/docs/current/userguide/application_plugin.html
 apply plugin: "io.ratpack.ratpack-groovy"
 apply plugin: "com.github.johnrengelman.shadow"
 apply plugin: "asset-pipeline"
-
-// The “ratpack” plugin is IDEA aware.
-// It will create a run configuration in IDEA to launch your app in your IDE, with hot reloading.
-apply plugin: "idea"
-idea {
-    project {
-        jdkName "1.8"
-        languageLevel "1.8"
-        ipr {
-            withXml { provider ->
-                def node = provider.asNode()
-                //configure git support for the project in idea
-                node.component.find { it.'@name' == 'VcsDirectoryMappings' }?.mapping[0].'@vcs' = 'Git'
-            }
-        }
-    }
-}
-
 apply plugin: "eclipse"
 
 repositories {

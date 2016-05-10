@@ -2,6 +2,7 @@ body {
     background: url('/assets/binding_dark.png');
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     font-size: 14px;
+    padding: 0 40px;
 }
 
 .header.ui-layout-pane  {
@@ -89,10 +90,6 @@ body {
     position: relative;
 }
 
-body {
-    padding: 0 40px;
-}
-
 .main.ui-layout-pane {
     border: 3px solid #777;
 }
@@ -147,4 +144,23 @@ body {
     top: 50px;
     height: auto;
     bottom: initial;
+
+    background: #222;
+    color: #ddd;
+    border: 3px solid #777;
+
+    .modal-header {
+        padding: 0 10px;
+        border-bottom: 1px solid #444;
+        h3 {
+            margin: 7px 0;
+        }
+    }
+    .modal-footer {
+        padding: 10px;
+        border-top: none;
+        .btn {
+            width: 100%;
+        }
+    }
 }

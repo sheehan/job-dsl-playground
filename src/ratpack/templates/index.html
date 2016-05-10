@@ -28,12 +28,10 @@
 <body style="visibility: hidden">
 <div class="header">
     <h1>Jenkins Job DSL Playground</h1>
-    <span class="docs"><a href="https://github.com/jenkinsci/job-dsl-plugin/wiki/Job-DSL-Commands">Docs</a></span>
-    <% if (model.id) {%>
-    <span class="gist">
+    <span class="docs"><a href="https://jenkinsci.github.io/job-dsl-plugin/">API</a></span>
+    <span class="gist hide">
         <a href="https://gist.github.com/${model.id}"><i class="fa fa-github"></i> ${model.id}</a>
     </span>
-    <% } %>
 </div>
 <div class="main">
 <div class="input">
@@ -41,7 +39,7 @@
         <span class="source-type">Groovy</span>
         <div class="controls">
             <button class="btn btn-default execute"><i class="fa fa-play"></i> Run</button>
-            <!--<button class="btn btn-default save"><i class="fa fa-save"></i> Save</button>-->
+            <button class="btn btn-default save"><i class="fa fa-github"></i> Save</button>
             <i class="fa fa-refresh fa-spin loading" style="display: none"></i>
         </div>
     </div>
@@ -63,7 +61,9 @@ job('ci') {
     </div>
 </div>
 <div class="output">
-    <div class="title"><span class="source-type">XML</span></div>
+    <div class="title">
+        <span class="source-type">XML</span>
+    </div>
     <div class="content">
         <div class="code-wrapper">
             <textarea></textarea>
@@ -76,17 +76,21 @@ job('ci') {
     <span class="playground-source"><a href="https://github.com/sheehan/job-dsl-playground">Source</a></span>
 </div>
 
-<div class="modal hide fade">
+<div class="modal hide fade save-gist">
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h3>Modal header</h3>
+        <h3>Save as Gist</h3>
     </div>
     <div class="modal-body">
-        <p>One fine body…</p>
+        <p>The DSL input and the XML output will be saved as an anonymous GitHub Gist. </p>
+        <p class="saving">
+            <i class="fa fa-refresh fa-spin"></i>
+            Saving...
+        </p>
+        <p class="result"></p>
     </div>
     <div class="modal-footer">
-        <a href="#" class="btn" data-dismiss="modal">Close</a>
-        <a href="#" class="btn btn-primary">Save changes</a>
+        <a href="#" class="btn btn-primary save">Save Gist</a>
     </div>
 </div>
 
