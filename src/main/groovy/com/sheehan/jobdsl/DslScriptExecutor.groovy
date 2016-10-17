@@ -26,7 +26,7 @@ class DslScriptExecutor implements ScriptExecutor {
             MemoryJobManagement jm = new MemoryJobManagement()
 
             ScriptRequest scriptRequest = new ScriptRequest(null, scriptText, new File('.').toURI().toURL())
-            DslScriptLoader.runDslEngine(scriptRequest, jm)
+            new DslScriptLoader(jm).runScripts([scriptRequest])
 
             scriptResult.results = jm.savedConfigs.collect { [name: it.key, xml: it.value] }
             scriptResult.results += jm.savedViews.collect { [name: it.key, xml: it.value] }
