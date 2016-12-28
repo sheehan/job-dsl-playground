@@ -1,7 +1,7 @@
 buildscript {
     ext {
         assetPipelineVersion = "2.7.2"
-        jobDslVersion = "1.53"
+        jobDslVersion = "1.54"
     }
     repositories {
         maven { url "http://oss.jfrog.org/artifactory/repo" }
