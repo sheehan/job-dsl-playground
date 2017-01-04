@@ -2,7 +2,6 @@ package com.sheehan.jobdsl
 
 import javaposse.jobdsl.dsl.DslScriptLoader
 import javaposse.jobdsl.dsl.MemoryJobManagement
-import javaposse.jobdsl.dsl.ScriptRequest
 import org.codehaus.groovy.control.MultipleCompilationErrorsException
 import org.codehaus.groovy.runtime.StackTraceUtils
 
@@ -25,8 +24,7 @@ class DslScriptExecutor implements ScriptExecutor {
             CustomSecurityManager.restrictThread()
             MemoryJobManagement jm = new MemoryJobManagement()
 
-            ScriptRequest scriptRequest = new ScriptRequest(null, scriptText, new File('.').toURI().toURL())
-            new DslScriptLoader(jm).runScripts([scriptRequest])
+            new DslScriptLoader(jm).runScript(scriptText)
 
             scriptResult.results = jm.savedConfigs.collect { [name: it.key, xml: it.value] }
             scriptResult.results += jm.savedViews.collect { [name: it.key, xml: it.value] }
