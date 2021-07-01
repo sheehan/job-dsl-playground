@@ -12,7 +12,11 @@ You can run the app locally with:
 ./gradlew run
 ```
 
+<<<<<<< HEAD
 Or build a dockker image using the locally included Dockerfile.
+=======
+Or build a docker image using the locally included Dockerfile.
+>>>>>>> b2205ac (Updated build repository location.)
 
 ```
 docker build -t dsl-playground .
