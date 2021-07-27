@@ -4,7 +4,7 @@ buildscript {
         jobDslVersion = "1.77"
     }
     repositories {
-        maven { url "http://oss.jfrog.org/artifactory/repo" }
+        mavenCentral()
         jcenter()
     }
     dependencies {
@@ -41,10 +41,8 @@ idea {
 apply plugin: "eclipse"
 
 repositories {
-  maven { url "http://oss.jfrog.org/artifactory/repo" }
-  jcenter()
-  maven { url "http://repo.springsource.org/repo" } // for springloaded
-  maven { url "http://repo.jenkins-ci.org/releases/" }
+  mavenCentral()
+  maven { url "https://repo.jenkins-ci.org/releases/" }
 }
 
 configurations.all {
