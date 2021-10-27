@@ -1,7 +1,7 @@
 buildscript {
     ext {
         assetPipelineVersion = "2.7.2"
-        jobDslVersion = "1.77"
+        jobDslVersion = "1.78.1"
     }
     repositories {
         mavenCentral()
