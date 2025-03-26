@@ -6,10 +6,11 @@ buildscript {
     repositories {
         mavenCentral()
         jcenter()
+        gradlePluginPortal()
     }
     dependencies {
         classpath 'io.ratpack:ratpack-gradle:1.2.0'
-        classpath "com.github.jengelman.gradle.plugins:shadow:1.2.2"
+        classpath "com.github.johnrengelman.shadow:com.github.johnrengelman.shadow.gradle.plugin:5.2.0"
         classpath "com.bertramlabs.plugins:asset-pipeline-gradle:${assetPipelineVersion}"
         classpath "com.bertramlabs.plugins:less-asset-pipeline:${assetPipelineVersion}"
     }
